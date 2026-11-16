@@ -1,11 +1,11 @@
 [package]
-name = "nodebridge-verifier"
+name = "trustcompute-verifier"
 version = "0.1.0"
 edition = "2021"
-description = "Checks a NodeBridge job result against its committed spec"
+description = "Checks a TrustCompute job result against its committed spec"
 
 [[bin]]
-name = "nodebridge-verifier"
+name = "trustcompute-verifier"
 path = "src/main.rs"
 
 [dependencies]
