@@ -3,6 +3,37 @@ export const CONTRACT_ADDRESS = process.env.NEXT_PUBLIC_CONTRACT_ADDRESS;
 export const ESCROW_ABI = [
   {
     type: "function",
+    name: "refundBuyer",
+    stateMutability: "nonpayable",
+    inputs: [{ name: "voucherId", type: "uint256" }],
+    outputs: [],
+  },
+  {
+    type: "function",
+    name: "setWorkerAuthorization",
+    stateMutability: "nonpayable",
+    inputs: [
+      { name: "worker", type: "address" },
+      { name: "authorized", type: "bool" },
+    ],
+    outputs: [],
+  },
+  {
+    type: "function",
+    name: "owner",
+    stateMutability: "view",
+    inputs: [],
+    outputs: [{ name: "", type: "address" }],
+  },
+  {
+    type: "function",
+    name: "authorizedWorkers",
+    stateMutability: "view",
+    inputs: [{ name: "", type: "address" }],
+    outputs: [{ name: "", type: "bool" }],
+  },
+  {
+    type: "function",
     name: "listVoucher",
     inputs: [
       { name: "voucherId", type: "uint256" },
