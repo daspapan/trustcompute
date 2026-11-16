@@ -17,8 +17,8 @@ export function Navbar() {
     <nav className="navbar">
       <div className="navbar__inner">
         <Link href="/" className="navbar__brand">
-          <span className="navbar__mark">NB</span>
-          <span className="navbar__name">NodeBridge</span>
+          <span className="navbar__mark">TC</span>
+          <span className="navbar__name">TrustCompute</span>
         </Link>
 
         <div className="navbar__links">

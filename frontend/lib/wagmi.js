@@ -8,7 +8,7 @@ const chainId = Number(process.env.NEXT_PUBLIC_CHAIN_ID || 31337);
 const chains = chainId === sepolia.id ? [sepolia] : [hardhat];
 
 export const wagmiConfig = getDefaultConfig({
-  appName: "NodeBridge",
+  appName: "TrustCompute",
   projectId: process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID || "demo-project-id",
   chains,
   // Use your own RPC (e.g. Alchemy) on Sepolia; public RPCs reject large log queries.

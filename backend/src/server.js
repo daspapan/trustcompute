@@ -9,7 +9,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.get("/api/health", (req, res) => res.json({ ok: true, date: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }), version: process.env.npm_package_version }));
+app.get("/api/health", (req, res) => res.json({ ok: true, timestamp: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }), ver: process.env.npm_package_version }));
 app.use("/api", verifyDeliveryRouter);
 app.use("/api", configRouter);
 

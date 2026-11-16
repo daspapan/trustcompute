@@ -3,6 +3,7 @@
 import { VoucherCard } from "@/components/VoucherCard";
 import { useJobCatalog, useVouchers } from "@/lib/useVouchers";
 import { CONTRACT_ADDRESS } from "@/lib/contract";
+import { NetworkBanner } from "@/components/NetworkBanner";
 
 export default function MarketplacePage() {
   const { vouchers, initialLoading, refreshing, error, refresh } = useVouchers();
@@ -15,11 +16,14 @@ export default function MarketplacePage() {
 
   return (
     <>
+    
+      <NetworkBanner />
+
       <div className="page-head">
-        <p className="page-head__eyebrow">NodeBridge</p>
-        <h1 className="page-head__title">Open compute jobs</h1>
+        <p className="page-head__eyebrow">TrustCompute</p>
+        <h1 className="page-head__title">Trust Compute Jobs</h1>
         <p className="page-head__lede">
-          Fund a provider. Escrow holds the ETH until an admin accepts a result that matches the committed spec.
+          The buyer knows the fingerprint of what they are buying, but not the content itself.
         </p>
       </div>
 
