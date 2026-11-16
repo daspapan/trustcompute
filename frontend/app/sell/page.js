@@ -13,7 +13,7 @@ export default function SellPage() {
         <p className="page-head__eyebrow">Offer</p>
         <h1 className="page-head__title">Publish a compute job</h1>
         <p className="page-head__lede">
-          Write the task in plain language. NodeBridge commits a keccak256 hash of the spec, then a requester can fund it.
+          Write the task in plain language. TrustCompute commits a keccak256 hash of the spec, then a requester can fund it.
         </p>
       </div>
 

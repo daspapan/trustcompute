@@ -1,4 +1,4 @@
-//! Result check for a NodeBridge job.
+//! Result check for a TrustCompute job.
 //!
 //! The canonical spec is `title\ntask\nexpected`, hashed with keccak256.
 //! That string must match `frontend/lib/spec.js` and `contracts/scripts/seed-demo.js`.

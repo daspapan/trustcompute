@@ -4,7 +4,7 @@ import { Navbar } from "@/components/Navbar";
 import { display, body, mono } from "./fonts";
 
 export const metadata = {
-  title: "NodeBridge",
+  title: "TrustCompute",
   description: "Fund a compute job in escrow. A result is released only after its hash matches the committed spec.",
 };
 
