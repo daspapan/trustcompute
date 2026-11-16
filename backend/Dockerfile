@@ -11,8 +11,8 @@ WORKDIR /app/backend
 COPY backend/package*.json ./
 RUN npm ci --omit=dev
 COPY backend ./
-COPY --from=verifier /src/verifier/target/release/nodebridge-verifier /usr/local/bin/nodebridge-verifier
-ENV VERIFIER_BIN=/usr/local/bin/nodebridge-verifier
+COPY --from=verifier /src/verifier/target/release/trustcompute-verifier /usr/local/bin/trustcompute-verifier
+ENV VERIFIER_BIN=/usr/local/bin/trustcompute-verifier
 ENV PORT=4000
 EXPOSE 4000
 CMD ["node", "src/server.js"]

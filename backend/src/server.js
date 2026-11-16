@@ -9,11 +9,11 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.get("/api/health", (req, res) => res.json({ ok: true }));
+app.get("/api/health", (req, res) => res.json({ ok: true, date: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }), version: process.env.npm_package_version }));
 app.use("/api", verifyDeliveryRouter);
 app.use("/api", configRouter);
 
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
-  console.log(`NodeBridge backend listening on http://localhost:${PORT}`);
+  console.log(`TrustCompute backend listening on http://localhost:${PORT}`);
 });

@@ -5,7 +5,7 @@ const { spawn } = require("child_process");
 function verifierBin() {
   if (process.env.VERIFIER_BIN) return process.env.VERIFIER_BIN;
 
-  const name = process.platform === "win32" ? "nodebridge-verifier.exe" : "nodebridge-verifier";
+  const name = process.platform === "win32" ? "trustcompute-verifier.exe" : "trustcompute-verifier";
   const root = path.join(__dirname, "..", "..", "verifier", "target");
   const release = path.join(root, "release", name);
   const debug = path.join(root, "debug", name);
