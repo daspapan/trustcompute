@@ -31,11 +31,161 @@
 
   --shadow-1: 0 1px 2px rgba(15, 37, 64, 0.08);
   --shadow-2: 0 8px 24px rgba(15, 37, 64, 0.12);
+  --nav-bg: rgba(232, 242, 252, 0.88);
+  --glow: rgba(29, 95, 209, 0.12);
 
   --font-display: "Fraunces", Georgia, serif;
   --font-body: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
 }
+
+/* ---------- Role themes ----------
+   RoleContext sets <html data-role="owner|worker|seller|buyer|guest">.
+   Buyer and guest use the default light blue theme above.
+   Every text colour below meets WCAG AA (4.5:1) on its background. */
+
+html[data-role="owner"] {
+  --bg: #fdecef;
+  --bg-subtle: #fadde3;
+  --ink: #3a1420;
+  --ink-soft: #6e3a48;
+  --ink-faint: #7a4654;
+  --border: #f0c4cd;
+  --border-strong: #e2a2b0;
+  --accent: #c0264a;
+  --accent-hover: #a01f3d;
+  --accent-soft: #fde4ea;
+  --shadow-1: 0 1px 2px rgba(58, 20, 32, 0.08);
+  --shadow-2: 0 8px 24px rgba(58, 20, 32, 0.12);
+  --nav-bg: rgba(253, 236, 239, 0.9);
+  --glow: rgba(192, 38, 74, 0.12);
+}
+
+html[data-role="worker"] {
+  --bg: #f1eefc;
+  --bg-subtle: #e6e0fa;
+  --ink: #1f1640;
+  --ink-soft: #4a3f73;
+  --ink-faint: #574c80;
+  --border: #d3caf2;
+  --border-strong: #b8aae8;
+  --accent: #5b3fc4;
+  --accent-hover: #4a32a3;
+  --accent-soft: #e2dbfb;
+  --shadow-1: 0 1px 2px rgba(31, 22, 64, 0.08);
+  --shadow-2: 0 8px 24px rgba(31, 22, 64, 0.12);
+  --nav-bg: rgba(241, 238, 252, 0.9);
+  --glow: rgba(91, 63, 196, 0.12);
+}
+
+html[data-role="seller"] {
+  --bg: #e9f7ee;
+  --bg-subtle: #dcf1e4;
+  --ink: #0f2d1c;
+  --ink-soft: #3b5e49;
+  --ink-faint: #45664f;
+  --border: #c3e3cf;
+  --border-strong: #9fd1b2;
+  --accent: #1b7a45;
+  --accent-hover: #15633a;
+  --accent-soft: #e1f5e8;
+  --shadow-1: 0 1px 2px rgba(15, 45, 28, 0.08);
+  --shadow-2: 0 8px 24px rgba(15, 45, 28, 0.12);
+  --nav-bg: rgba(233, 247, 238, 0.9);
+  --glow: rgba(27, 122, 69, 0.12);
+}
+
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.role-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+}
+
+.role-badge::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: var(--accent);
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.stat {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+  box-shadow: var(--shadow-1);
+}
+
+.stat__label {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.stat__value {
+  margin: 0.35rem 0 0;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.escrow-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 1rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.escrow-row__title {
+  margin: 0;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.escrow-row__meta {
+  margin: 0.25rem 0 0;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+.escrow-row__actions {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.panel + .panel {
+  margin-top: 1.5rem;
+}
+
 
 * {
   box-sizing: border-box;
@@ -49,7 +199,7 @@ body {
 
 body {
   background:
-    radial-gradient(880px 420px at 8% -12%, rgba(29, 95, 209, 0.12), transparent 58%),
+    radial-gradient(880px 420px at 8% -12%, var(--glow), transparent 58%),
     var(--bg);
   color: var(--ink);
   font-family: var(--font-body);
@@ -81,7 +231,7 @@ code {
   position: sticky;
   top: 0;
   z-index: 20;
-  background: rgba(232, 242, 252, 0.88);
+  background: var(--nav-bg);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--border);
 }
